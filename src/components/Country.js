@@ -1,8 +1,13 @@
 const Country = ({country}) => {
+    
+    const handleClick = (e) => {
+        
+    }
+    
     return (
     <li>
         {country.name.common}
-        <button>Visited</button>
+        <button onClick={handleClick}>Visited</button>
     </li>
     );
 }
