@@ -4,7 +4,7 @@ import CountriesContainer from './containers/CountriesContainer';
 function App() {
   return (
     <div>
-      <h1>Countries App</h1>
+      <h1>Country Checker</h1>
       <CountriesContainer />
     </div>
   );

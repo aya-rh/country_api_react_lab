@@ -1,13 +1,16 @@
-const Country = ({country}) => {
+const Country = ({country, updateVisitedListOnClick}) => {
     
     const handleClick = (e) => {
-        
+        updateVisitedListOnClick(country.name.common);
     }
     
     return (
-    <li>
-        {country.name.common}
+    <li className="button">
+        <strong className="country__name">{country.name.common}</strong>
+        <br/>
         <button onClick={handleClick}>Visited</button>
+        <br/>
+        <br/>
     </li>
     );
 }

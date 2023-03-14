@@ -11,8 +11,29 @@ const CountryContainer = () => {
         }
     , []);
     
-    const updateVisitedListOnClick = (country) => {
-        setVisitedCountries([...visitedCountries, country]);
+    const updateVisitedListOnClick = (countryName) => {
+        // checks if country already exists in visitedCountries
+        const alreadyVisited = visitedCountries.includes((country) => {
+            return country.name.common === countryName;
+        })
+
+        // if country already visited, return
+        if (alreadyVisited){
+            return;
+        }
+
+        // find country in countries array and remove it
+        const filteredList = countries.filter((country)=>{
+            return country.name.common !== countryName;
+        })
+
+        // add selected country to visitedCountries and updates countries list to not include it
+        const selectedCountry = countries.find((country) => {
+            return country.name.common === countryName;
+        });
+
+        setVisitedCountries([...visitedCountries, selectedCountry]);
+        setCountries(filteredList);
     } 
     
     const updateList = () => {
@@ -22,7 +43,7 @@ const CountryContainer = () => {
     }
     return (
         <> 
-            {countries ?  <CountryList countries= {countries}/> : <p>Loading</p>}
+            {countries ?  <CountryList countries= {countries} updateVisitedListOnClick={updateVisitedListOnClick}/> : <p>Loading</p>}
             {countries ?  <CountryList countries= {visitedCountries}/> : <p>Loading</p>}
         </>
      );
