@@ -1,23 +1,9 @@
-const Country = ({country, onVisit}) => {
-    const {name, flag} = country;
-
-    //callback to onVisit 
-    const handleVisit = () => {
-        onVisit(country);
-    }
-
-    // handle visit and add button
+const Country = ({country}) => {
     return (
-        <div className="country">
-            <img className="country__flag" src={flag} alt={name} />
-            
-            <div className="country__info">
-                <h2 className="country__name">{name}</h2>
-                <button onClick={handleVisit}>Visited?</button>
-            </div>
-
-        </div>
-    )
+    <li>
+        {country.name.common}
+        <button>Visited</button>
+    </li>
+    );
 }
-
 export default Country;

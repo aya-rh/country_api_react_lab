@@ -3,7 +3,10 @@ import CountriesContainer from './containers/CountriesContainer';
 
 function App() {
   return (
-    <CountriesContainer />
+    <div>
+      <h1>Countries App</h1>
+      <CountriesContainer />
+    </div>
   );
 }
 
